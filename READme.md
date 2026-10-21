@@ -1,1 +1,1 @@
-# My-Pet-Adoption-Auto-Discovery-Project
+# auto-discovery-project
