@@ -10,7 +10,7 @@ pipeline {
         pollSCM('* * * * *') // Runs every minute
     }
     environment {
-        SLACKCHANNEL = '24-aug-2026-pet-adoption-auto-discovery-project'
+        SLACKCHANNEL = 'U0A8MCQ2KHN'
         SLACKCREDENTIALS = credentials('slack-cred')
         // Vault address (behind the ELB / Route53 record created by the jenkins/ stack)
         // and root token, read by the "vault" provider in provider.tf.

@@ -222,10 +222,34 @@ resource "aws_security_group" "jenkins_elb_sg" {
   }
 }
 
+data "aws_ami" "redhat" {
+  most_recent = true
+  owners      = ["309956199498"] # Red Hat official AWS account
+
+  filter {
+    name   = "name"
+    values = ["RHEL-9.*_HVM-*-x86_64-*"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+}
 
 #creating the jenkins server
 resource "aws_instance" "jenkins-server" {
-  ami                         = "ami-0884bba1ac5619645" # redhat in eu-west-3
+  ami                         = data.aws_ami.redhat.id
   instance_type               = "t3.medium"
   key_name                    = aws_key_pair.public_key.id
   associate_public_ip_address = true
@@ -377,6 +401,13 @@ resource "aws_security_group" "vault_elb_sg" {
   ingress {
     from_port   = 443
     to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+    ingress {
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
