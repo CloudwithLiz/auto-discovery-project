@@ -36,7 +36,7 @@ resource "aws_subnet" "project2026_public_subnet_2" {
 resource "aws_subnet" "project2026_private_subnet_1" {
   vpc_id            = aws_vpc.project2026_vpc.id
   cidr_block        = "10.0.3.0/24"
-  availability_zone = "eu-west-3a"
+  availability_zone = "eu-west-2a"
 
 
   tags = {
@@ -47,7 +47,7 @@ resource "aws_subnet" "project2026_private_subnet_1" {
 resource "aws_subnet" "project2026_private_subnet_2" {
   vpc_id            = aws_vpc.project2026_vpc.id
   cidr_block        = "10.0.4.0/24"
-  availability_zone = "eu-west-3b"
+  availability_zone = "eu-west-2b"
 
   tags = {
     Name = "${local.name}-private_subnet_2"
@@ -354,7 +354,7 @@ resource "aws_security_group" "vault_sg" {
     from_port       = 0
     to_port         = 0
     protocol        = "-1"
-    security_groups = [aws_security_group.jenkins_sg.id]
+    cidr_blocks     = ["0.0.0.0/0"]
   }
 
   tags = {
@@ -454,7 +454,7 @@ resource "aws_instance" "vault_server" {
   }
 
   user_data = templatefile("./vault_userdata.sh", {
-    region        = "eu-west-3",
+    region        = "eu-west-2",
     VAULT_VERSION = "1.18.3",
     key           = aws_kms_key.vault-kms-key.id,
     nr_key        = var.nr_key,

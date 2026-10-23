@@ -5,7 +5,7 @@ echo "Deleting S3 bucket"
 
 # Using the same variables as the ones used for creation
 BUCKET_NAME="project-state-s3bucket"
-AWS_REGION="eu-west-3"
+AWS_REGION="eu-west-2"
 AWS_PROFILE="default"
 
 echo "Deleting all objects in $BUCKET_NAME..."

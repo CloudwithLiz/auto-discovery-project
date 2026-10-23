@@ -8,29 +8,29 @@ variable "pub_subnet1_cidr" {
   default = "10.0.1.0/24"
 }
 variable "pub_subnet1_az" {
-  default = "eu-west-3a"
+  default = "eu-west-2a"
 }
 variable "pub_subnet2_cidr" {
   default = "10.0.2.0/24"
 }
 variable "pub_subnet2_az" {
-  default = "eu-west-3b"
+  default = "eu-west-2b"
 }
 variable "priv_subnet1_cidr" {
   default = "10.0.3.0/24"
 }
 variable "priv_subnet1_az" {
-  default = "eu-west-3a"
+  default = "eu-west-2a"
 }
 variable "priv_subnet2_cidr" {
   default = "10.0.4.0/24"
 }
 variable "priv_subnet2_az" {
-  default = "eu-west-3b"
+  default = "eu-west-2b"
 }
 variable "availability_zone" {
-  default = "eu-west-3a"
+  default = "eu-west-2a"
 }
 variable "region" {
-  default = "eu-west-3"
+  default = "eu-west-2"
 }

@@ -12,7 +12,7 @@ variable "domain" {
 }
 
 variable "region" {
-  default = "eu-west-3"
+  default = "eu-west-2"
 }
 
 variable "nr_key" {

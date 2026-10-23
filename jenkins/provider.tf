@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-3"
+  region = "eu-west-2"
 }
 
 terraform {
@@ -25,7 +25,7 @@ terraform {
   backend "s3" {
     bucket         = "project-state-s3bucket"
     key            = "project-2026-jenkins/terraform.tfstate"
-    region         = "eu-west-3"
+    region         = "eu-west-2"
     encrypt        = true
     dynamodb_table = "terraform-state-lock"
   }

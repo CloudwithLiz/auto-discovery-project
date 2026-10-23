@@ -29,7 +29,7 @@ echo 'export PATH=/opt/maven/bin:$PATH' | sudo tee /etc/profile.d/maven.sh
 sudo ln -svf /opt/maven/bin/mvn /usr/bin/mvn
 
 # Install SSM Agent 
-sudo yum install -y https://s3.eu-west-3.amazonaws.com/amazon-ssm-eu-west-3/latest/linux_amd64/amazon-ssm-agent.rpm
+sudo yum install -y https://s3.eu-west-2.amazonaws.com/amazon-ssm-eu-west-2/latest/linux_amd64/amazon-ssm-agent.rpm
 # Install Session Manager Plugin (FIXED)
 sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent

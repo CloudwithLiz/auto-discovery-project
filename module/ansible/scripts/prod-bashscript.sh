@@ -31,7 +31,6 @@ mkdir -p "$ANSIBLE_DIR"
 # ==============================
 # Find running production instances
 # ==============================
-
 find_ips() {
 
     echo "Finding production EC2 instances..."
@@ -46,12 +45,9 @@ find_ips() {
     echo "Production IP addresses:"
     cat "$IPS_FILE"
 }
-
-
 # ==============================
 # Update Ansible inventory
 # ==============================
-
 update_inventory() {
 
     echo "Updating production inventory..."

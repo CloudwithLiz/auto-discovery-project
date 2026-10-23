@@ -1,5 +1,5 @@
 variable "region" {
-  default = "eu-west-3"
+  default = "eu-west-2"
 }
 
 variable "name" {
@@ -53,22 +53,22 @@ variable "priv_subnet2_cidr" {
 
 variable "pub_subnet1_az" {
   type    = string
-  default = "eu-west-3a"
+  default = "eu-west-2a"
 }
 
 variable "pub_subnet2_az" {
   type    = string
-  default = "eu-west-3b"
+  default = "eu-west-2b"
 }
 
 variable "priv_subnet1_az" {
   type    = string
-  default = "eu-west-3c"
+  default = "eu-west-2c"
 }
 
 variable "priv_subnet2_az" {
   type    = string
-  default = "eu-west-3d"
+  default = "eu-west-2b"
 }
 
 variable "vpc_cidr_block" {
@@ -78,12 +78,12 @@ variable "vpc_cidr_block" {
 
 variable "availability_zone" {
   type    = string
-  default = "eu-west-3a"
+  default = "eu-west-2a"
 }
 
 variable "bucket_name" {
   type    = string
-  default = "project-2026-state-s3bucket"
+  default = "project-state-s3bucket"
 }
 
 variable "vault_sg_cidr" {

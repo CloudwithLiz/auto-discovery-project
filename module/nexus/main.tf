@@ -1,4 +1,4 @@
-# Security Group for Nexus Server (Ports 443, 8081, 8085)
+# 1. Security Group for Nexus Server (Ports 443, 8081, 8085)
 resource "aws_security_group" "nexus_sg" {
   name        = "nexus-server-sg"
   description = "Security group for Nexus server allowing web, artifact, and docker registry traffic"
@@ -13,7 +13,7 @@ resource "aws_security_group" "nexus_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Inbound: Nexus Default Web UI / Maven Repository Port. Jenkins uploads or downloads application artifacts, such as .jar and .war files, from Nexus.
+  # Inbound: Nexus Default Web UI / Maven Repository Port
   ingress {
     description = "Nexus UI and Maven Repository"
     from_port   = 8081
@@ -22,7 +22,7 @@ resource "aws_security_group" "nexus_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Inbound: Docker Hosted Repository Port. Jenkins pushes Docker images to Nexus and can pull them back for deployment.
+  # Inbound: Docker Hosted Repository Port
   ingress {
     description = "Nexus Docker Registry Port"
     from_port   = 8085
