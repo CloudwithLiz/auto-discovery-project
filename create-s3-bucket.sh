@@ -2,7 +2,7 @@
 
 set -e
 # set variable for bucket-name
-BUCKET_NAME="project-state-s3bucket"
+BUCKET_NAME="project2026-state-s3bucket"
 DYNAMODB_TABLE="terraform-state-lock"
 AWS_REGION="eu-west-2"
 AWS_PROFILE="default"

@@ -83,7 +83,7 @@ variable "availability_zone" {
 
 variable "bucket_name" {
   type    = string
-  default = "project-state-s3bucket"
+  default = "project2026-state-s3bucket"
 }
 
 variable "vault_sg_cidr" {
