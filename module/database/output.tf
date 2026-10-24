@@ -25,6 +25,7 @@ output "db_password" {
   sensitive   = true
 }
 
+
 output "rds_sg_id" {
   description = "Security group ID attached to the RDS instance"
   value       = aws_security_group.rds_sg.id
