@@ -55,16 +55,6 @@ The project has two main parts:
 - **DynamoDB** — locks that state so only one person can apply changes at a time
 - Both feed back into Terraform, completing the infrastructure-as-code loop
 
-## NAT Gateway (assigned component)
-
-The NAT Gateway sits in the public subnet and allows the Docker hosts in the private subnet to reach the internet for outbound-only traffic (e.g. downloading OS or package updates), without exposing them to inbound internet access.
-
-**Terraform resources** (see `/nat-gateway/main.tf`):
-
-- `aws_eip.Aug2026-nat-eip` — Elastic IP the NAT Gateway uses
-- `aws_nat_gateway.Aug2026-nat-gateway` — the NAT Gateway itself, placed in the public subnet
-- `aws_route_table.Aug2026-private-rt` — routes private subnet outbound traffic through the NAT Gateway
-- `aws_route_table_association.Aug2026-private-rt-assoc` — associates that route table with the private subnet
 
 **Naming convention:** all resources created for this project are prefixed `Aug2026-` followed by a descriptive name.
 
