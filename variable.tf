@@ -63,7 +63,7 @@ variable "pub_subnet2_az" {
 
 variable "priv_subnet1_az" {
   type    = string
-  default = "eu-west-2c"
+  default = "eu-west-2a"
 }
 
 variable "priv_subnet2_az" {
