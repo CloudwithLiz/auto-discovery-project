@@ -27,6 +27,8 @@ The project has two main parts:
 | Vault | Stores and controls access to secrets (credentials, API keys) |
 | Nexus | Stores build artifacts such as Docker images |
 | SonarQube | Analyzes code quality and flags bugs or code smells |
+| New Relic | Monitors application performance |
+| Slack |Sends pipeline notifications|
 
 **Flow:** GitHub repos → Jenkins pulls code → Checkov/Trivy/ZAP scan it → Vault supplies secrets → Jenkins deploys through the Bastion Host into the private network.
 
@@ -58,33 +60,9 @@ The project has two main parts:
 
 
 
-# Auto-Discovery Pet Adoption Application
 
-This repository contains Terraform configuration for provisioning AWS infrastructure for a Pet Adoption application. The project uses reusable Terraform modules to create networking, CI/CD infrastructure, staging and production environments, supporting DevOps tools, and application deployment resources.
 
-## Project Overview
 
-The main infrastructure stack provisions an AWS environment for the Pet Adoption application. It uses Terraform for infrastructure provisioning, Jenkins for CI/CD automation, and Ansible and Docker for application deployment.
-
-The infrastructure includes:
-
-- A dedicated VPC with public and private subnets across multiple Availability Zones.
-- Internet Gateway and NAT Gateway for internet access and private subnet egress.
-- Application Load Balancers for staging and production traffic.
-- Auto Scaling Groups to manage application instances.
-- Docker containers running the Pet Adoption application.
-- An Ansible control node for configuration management and deployment.
-- Jenkins for CI/CD pipeline automation.
-- SonarQube for source-code analysis and quality gates.
-- Nexus for storing application build artifacts.
-- HashiCorp Vault for secrets management.
-- Amazon RDS MySQL for application data storage.
-- Amazon Route 53 for DNS management.
-- AWS Certificate Manager (ACM) for HTTPS certificates.
-- Amazon S3 and DynamoDB for Terraform remote state storage and locking.
-- New Relic for monitoring and Slack for pipeline notifications.
-
-The project also includes an Auto-Discovery mechanism that identifies running EC2 instances in configured Auto Scaling Groups and automatically updates the Ansible inventory when instance IP addresses change.
 
 ## Architecture
 
@@ -248,7 +226,6 @@ Cost-management practices include:
 - Using appropriately sized EC2 instances and database resources.
 - Configuring Auto Scaling Group capacity based on workload requirements.
 - Reviewing AWS billing and Cost Explorer.
-- Setting budgets and billing alerts.
 - Removing unused resources and temporary environments.
 - Preserving shared resources required for Terraform state management.
 
@@ -265,7 +242,7 @@ Before destroying infrastructure:
 5. Review the Terraform destroy plan or cleanup script.
 6. Verify the resources removed from AWS.
 
-**Warning:** Destroying infrastructure can cause application downtime and permanent data loss. Do not delete the S3 state bucket or DynamoDB lock table until you have confirmed that they are no longer needed and that the Terraform state is safely backed up.
+**Warning:** Destroying infrastructure can cause application downtime and permanent data loss.
 
 ## Notes
 
@@ -276,7 +253,6 @@ Before destroying infrastructure:
 - Verify the actual Terraform modules, Jenkins stages, and security settings before relying on them in production.
 
 
-**Naming convention:** all resources created for this project are prefixed `Aug2026-` followed by a descriptive name.
+**Naming convention:** all resources created for this project are prefixed `Project2026-` followed by a descriptive name.
 
-**Pending:** the VPC, public subnet, private subnet, and internet gateway references in `main.tf` are placeholders and need to be updated once the networking module (owned by another team member) is finalized.
 
