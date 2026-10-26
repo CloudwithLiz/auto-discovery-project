@@ -34,7 +34,7 @@ The project has two main parts:
 
 ## AWS Network Layout
 
-- **Region** contains one **VPC** (`172.16.0.0/16`)
+- **Region** eu-west-2
 - The VPC spans **two Availability Zones** for redundancy
 - Each AZ has a **public subnet** and a **private subnet**
 
