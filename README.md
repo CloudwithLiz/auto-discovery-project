@@ -119,7 +119,6 @@ The Terraform configuration uses an S3 remote backend for state storage and Dyna
 - **State separation:** Separate state keys can be used for different infrastructure stacks or environments.
 - **State protection:** S3 versioning and encryption help protect stored state.
 
-Use the actual bucket name, lock-table name, state keys, AWS profile, and region defined in your Terraform backend configuration. Do not commit credentials or sensitive state data to GitHub.
 
 ## Prerequisites
 
@@ -177,7 +176,6 @@ The workflow is as follows:
 
 This reduces manual inventory maintenance and helps deployment automation target the current instances.
 
-**Note:** Auto-Discovery refreshes the inventory; it does not automatically deploy the application unless a separate deployment process is triggered.
 
 ## Jenkins Pipeline
 
